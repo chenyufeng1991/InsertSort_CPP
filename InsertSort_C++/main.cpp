@@ -7,9 +7,41 @@
 //
 
 #include <iostream>
+#include <algorithm>
+#include <vector>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+using namespace std;
+
+void InsertSort(vector<int> &vec);
+
+int main(int argc, const char * argv[])
+{
+    int arr[] = {4,2,7,8,1,0};
+    vector<int>vectorArr(arr,arr + sizeof(arr) / sizeof(int));
+    InsertSort(vectorArr);
+    vector<int>::iterator vectorIte;
+    for (vectorIte = vectorArr.begin(); vectorIte != vectorArr.end(); vectorIte++)
+    {
+        cout << *vectorIte << " ";
+    }
+
     return 0;
 }
+
+void InsertSort(vector<int> &vec)
+{
+    for (int i = 1; i < vec.size(); i++)
+    {
+        if (vec[i] < vec[i - 1])
+        {
+            int temp = vec[i];
+            int j = i - 1;
+            for (j = i - 1; j >= 0 && temp < vec[j]; j--)
+            {
+                vec[j + 1] = vec[j];
+            }
+            vec[j + 1] = temp;
+        }
+    }
+}
+
