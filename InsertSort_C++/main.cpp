@@ -11,6 +11,11 @@
 #include <vector>
 
 using namespace std;
+/**
+ *  快速排序时间复杂度O(nlogn),空间复杂度O(1),是稳定的排序。
+ *
+ *  @param vec <#vec description#>
+ */
 
 void InsertSort(vector<int> &vec);
 
